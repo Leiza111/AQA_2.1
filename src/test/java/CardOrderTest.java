@@ -33,11 +33,7 @@ class CardOrderTest {
         $("[data-test-id='phone'] input").setValue("+79386542514");
         $("[data-test-id='agreement']").click();
         $$(".button__text").find(exactText("Забронировать")).click();
-        $("[data-test-id='notification'] .notification__title").shouldHave(exactText("Успешно!"), Duration.ofSeconds(20));
-        $("[data-test-id='notification'] .notification__content").shouldHave(exactText("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(20));
-    
-
-          }
-
-
+        $("[data-test-id='notification'] .notification__title").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(exactText("Успешно!"));
+        $("[data-test-id='notification'] .notification__content").shouldBe(visible, Duration.ofSeconds(20)).shouldHave(exactText("Встреча успешно забронирована на " + planningDate));
+    }
 }
